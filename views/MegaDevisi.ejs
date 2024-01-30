@@ -1,0 +1,87 @@
+<%- include('./layouts/header'); -%>
+<body>
+  <!-- NAV -->
+  <%- include('./layouts/MegaNavbar'); -%>
+
+  <!-- MAIN -->
+  <main>
+    <%- include('./layouts/MegaSidebar'); -%>
+    <section id="devisi-page" class="h-full bg-white rounded-tl-3xl p-8">
+      <div class="flex justify-between">
+        <p class="text-main font-bold text-2xl">Daftar Devisi</p>
+        <div class="flex gap-4 mt-5">
+          <button id="button-tambah" class="bg-main text-white text-sm px-8 py-2 rounded-lg">+ Tambah Devisi Baru</button>
+        </div>
+      </div>
+      <div id="bg-table-devisi" class="min-h-screen shadow-[0_0px_40px_-15px_rgba(0,0,0,0.2)] w-full mt-8 rounded-3xl p-8 bg-white">
+        <form id="form-devisi-delete">
+          <table id="table-devisi" class="display hidden" style="width: 100%;">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Nama Devisi</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+          </table>
+          <div id="bg-nothing" class="text-center">
+            <img src="/img/nothing.png" alt="" class="m-auto mt-20">
+            <p class="text-sm text-main font-normal">Belum Ada Devisi Terdaftar</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <section id="popup" class="hidden fixed top-0 bottom-0 left-0 right-0 bg-[#000]/50 flex items-center justify-center h-100">
+    
+    <div id="popup-tambah-devisi" class="hidden popup p-4 pb-5 z-10 w-[400px] m-auto absolute z-10 min-h-[160px] rounded-lg bg-white">
+        <form id="form-tambah-devisi">
+            <div class="body min-h-[100px] p-3">
+              <div class="flex justify-between items-center">
+                <p class="text-lg font-bold text-main">Tambah Devisi Karyawan</p>
+                <i class="close-x uil uil-times cursor-pointer"></i>
+              </div>
+              <label class="block mt-4">
+                  <span class="text-main tracking-[1.4px] font-normal text-sm">Nama Devisi*</span>
+                  <!-- Using form state modifiers, the classes can be identical for every input -->
+                  <input id="" type="text" value="" name="nama_devisi" placeholder="Teknisi Lapangan" class="block border border-main w-full px-3 py-[10px] bg-white rounded-lg text-sm placeholder-main/50 text-main
+                  focus:outline-none focus:ring-0 focus:ring-main
+                  focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+                  "/>
+              </label>
+              <div class="mt-6 mx-auto mb-2 flex justify-between">
+                  <button type="button" class="close-x hover:text-white hover:bg-red-500 duration-300 px-4 text-red-500 font-bold rounded-lg border border-red-500 py-2.5 text-sm">Close</button>
+                  <button type="submit" class="px-4 text-white font-bold rounded-lg bg-main py-2.5 text-sm">Confirm</button>
+              </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="popup-edit-devisi" class="hidden popup p-4 pb-5 z-10 w-[400px] m-auto absolute z-10 min-h-[160px] rounded-lg bg-white">
+        <form id="form-edit-devisi">
+            <div class="body min-h-[100px] p-3">
+              <div class="flex justify-between items-center">
+                <p class="text-lg font-bold text-main">Edit Devisi Karyawan</p>
+                <i class="close-x uil uil-times cursor-pointer"></i>
+              </div>
+              <label class="block mt-4">
+                  <span class="text-main tracking-[1.4px] font-normal text-sm">Nama Devisi*</span>
+                  <!-- Using form state modifiers, the classes can be identical for every input -->
+                  <input id="" type="text" value="" name="nama_devisi" placeholder="Teknisi Lapangan" class="block border border-main w-full px-3 py-[10px] bg-white rounded-lg text-sm placeholder-main/50 text-main
+                  focus:outline-none focus:ring-0 focus:ring-main
+                  focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+                  "/>
+              </label>
+              <div class="mt-6 mx-auto flex justify-between">
+                  <button type="button" class="close-x hover:text-white hover:bg-red-500 duration-300 px-4 text-red-500 font-bold rounded-lg border border-red-500 py-2.5 text-sm">Close</button>
+                  <button type="submit" class="px-4 text-white font-bold rounded-lg bg-main py-2.5 text-sm">Confirm</button>
+              </div>
+            </div>
+        </form>
+    </div>
+  </section>
+</body>
+<%- include('./layouts/footer'); -%>
+<script src="/js/MEGA/MegaDevisi.js"></script>

@@ -1,0 +1,1 @@
+$("#side-profile").addClass("sidelist-selected")

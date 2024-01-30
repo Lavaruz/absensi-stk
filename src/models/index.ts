@@ -19,7 +19,7 @@ if(process.env.ENV_TYPE == 'production'){
     host: "127.0.0.1",
     username: "root",
     password: "181001",
-    database: "muslim-maya",
+    database: "absensi-stk",
     logging: false,
   });
 }
@@ -30,7 +30,7 @@ if(process.env.ENV_TYPE == 'production'){
 const connectToDatabase = async () => {
   try {
     await sequelize.authenticate();
-    await sequelize.sync();
+    await sequelize.sync({alter:true});
     console.log("Model-model disinkronkan dengan database.");
   } catch (error) {
     console.error("Koneksi database gagal:", error);

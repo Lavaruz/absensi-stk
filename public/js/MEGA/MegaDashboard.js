@@ -1,0 +1,1 @@
+$("#side-dashboard").addClass("sidelist-selected")

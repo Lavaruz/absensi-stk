@@ -1,0 +1,84 @@
+<%- include('./layouts/header'); -%>
+<body>
+  <!-- NAV -->
+  <%- include('./layouts/MegaNavbar'); -%>
+
+  <!-- MAIN -->
+  <main>
+    <%- include('./layouts/MegaSidebar'); -%>
+    <section id="admin-page" class="h-full bg-white rounded-tl-3xl p-8">
+      <div class="flex justify-between">
+        <p class="text-main font-bold text-2xl">Absensi Karyawan</p>
+      </div>
+        
+      <!-- JAM ABSENSI -->
+      <div class="flex justify-between items-center w-[250px] shadow-[0_0px_40px_-15px_rgba(0,0,0,0.2)] bg-main p-4 rounded-lg mt-4">
+        <div class="">
+          <p class="text-white font-bold text-sm">Jam Absensi</p>
+          <p id="jam-absensi" class="text-white font-bold text-xl">07:30 - 08:00</p>
+        </div>
+        <button id="button-edit-absensi" class="text-sm font-bold text-white">Edit</button>
+      </div>
+      <p class="text-red-500 text-xs font-normal mt-2">*absensi diluar jam akan otomatis ditolak</p>
+        
+      <!-- TABLE LIST ABSENSI -->
+      <div id="bg-table-admin" class="min-h-screen shadow-[0_0px_40px_-15px_rgba(0,0,0,0.2)] w-full mt-8 rounded-3xl p-8 bg-white">
+        <form id="form-admin-delete">
+          <table id="table-absensi" class="display hidden" style="width: 100%;">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>NIK</th>
+                <th>Nama</th>
+                <th>Devisi</th>
+                <th></th>
+              </tr>
+            </thead>
+          </table>
+          <div id="bg-nothing" class="text-center">
+            <img src="/img/nothing.png" alt="" class="m-auto mt-20">
+            <p class="text-sm text-main font-normal">Belum Ada Absensi Terdaftar</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="popup" class="hidden fixed top-0 bottom-0 left-0 right-0 bg-[#000]/50 flex items-center justify-center h-100">
+      <div id="popup-edit-absensi" class="hidden popup p-4 pb-5 z-10 w-[400px] m-auto absolute z-10 min-h-[160px] rounded-lg bg-white">
+          <form id="form-edit-absensi">
+              <div class="body min-h-[100px] p-3">
+                <div class="flex justify-between items-center">
+                  <p class="text-lg font-bold text-main">Edit Jam Absensi</p>
+                  <i class="close-x uil uil-times cursor-pointer"></i>
+                </div>
+                <div class="flex gap-4 items-center">
+                  <label class="block mt-4">
+                      <span class="text-main tracking-[1.4px] font-normal text-sm">Mulai Absensi*</span>
+                      <!-- Using form state modifiers, the classes can be identical for every input -->
+                      <input id="" type="time" value="" name="jam_masuk" placeholder="Teknisi Lapangan" class="w-[120px] block border border-main px-3 py-[10px] bg-white rounded-lg text-sm placeholder-main/50 text-main
+                      focus:outline-none focus:ring-0 focus:ring-main
+                      focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+                      "/>
+                  </label>
+                  <label class="block mt-4">
+                      <span class="text-main tracking-[1.4px] font-normal text-sm">Tutup Absensi*</span>
+                      <!-- Using form state modifiers, the classes can be identical for every input -->
+                      <input id="" type="time" value="" name="jam_keluar" placeholder="Teknisi Lapangan" class="w-[120px] block border border-main px-3 py-[10px] bg-white rounded-lg text-sm placeholder-main/50 text-main
+                      focus:outline-none focus:ring-0 focus:ring-main
+                      focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+                      "/>
+                  </label>
+                </div>
+                <p class="text-red-500 text-xs font-normal mt-2">*karyawan tidak bisa absen diluar jam ini</p>
+                <div class="mt-6 mx-auto flex justify-between">
+                    <button type="button" class="close-x hover:text-white hover:bg-red-500 duration-300 px-4 text-red-500 font-bold rounded-lg border border-red-500 py-2.5 text-sm">Close</button>
+                    <button type="submit" class="px-4 text-white font-bold rounded-lg bg-main py-2.5 text-sm">Confirm</button>
+                </div>
+              </div>
+          </form>
+      </div>
+    </section>
+  </main>
+</body>
+<%- include('./layouts/footer'); -%>
+<script src="/js/MEGA/MegaAbsensi.js"></script>

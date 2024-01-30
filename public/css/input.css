@@ -23,11 +23,11 @@ main {
     grid-template-columns: 0.2fr 1fr;
 }
 
-input[type="file"]::file-selector-button {
-    background-color: antiquewhite;
-    border: none;
-    color: #358f6c;
-    border-radius: 20px;
-    padding: 0.3rem 0.7rem;
-    cursor: pointer;
-  }
+.green-row {
+    background-color: #a7f3a7 !important; /* Ganti dengan warna yang Anda inginkan */
+}
+
+/* CSS untuk warna merah */
+.red-row {
+    background-color: #f3a7a7 !important; /* Ganti dengan warna yang Anda inginkan */
+}

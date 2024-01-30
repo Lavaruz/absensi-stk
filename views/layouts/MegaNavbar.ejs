@@ -1,0 +1,24 @@
+<!-- <link rel="stylesheet" href="/css/layouts/navbar.css" /> -->
+
+<nav class="flex py-6 px-8">
+    <div class="w-[300px]">
+      <div class="brand flex gap-3 items-center">
+        <img src="/img/Logo.png" alt="" width="40px">
+        <p class="text-white font-bold text-2xl">Absensi STK</p>
+      </div>
+    </div>
+  
+    <div class="flex justify-between w-full">
+      <div class="flex gap-8 items-center">
+        <div class="flex gap-2 items-center bg-[#fff1e4] px-3 py-0.5 rounded">
+          <i class="uil uil-building"></i>
+          <p class="text-[#954800] text-sm font-bold">PT. Samudra Tirta Kencana</p>
+        </div>
+      </div>
+    
+      <form action="/api/v1/karyawan/logout" method="post" class="">
+        <button id="button-logout" type="submit" class="text-main bg-[#fff1e4] px-5 py-1.5 rounded-full text-sm text-center">Keluar</button>
+      </form>
+    </div>
+  </nav>
+  

@@ -1,0 +1,43 @@
+<%- include('./layouts/header'); -%>
+<body>
+  <!-- NAV -->
+  <%- include('./layouts/MegaNavbar'); -%>
+
+  <!-- MAIN -->
+  <main>
+    <%- include('./layouts/MegaSidebar'); -%>
+    <section id="admin-page" class="h-full bg-white rounded-tl-3xl p-8">
+      <div class="flex justify-between">
+        <p class="text-main font-bold text-2xl">Absensi Karyawan <span id="first-name">Assami</span></p>
+      </div>
+      <div class="flex items-center gap-4 justify-end">
+        <input type="month" name="" id="filter-bulan" class="text-sm border border-main rounded-lg px-3 py-2">
+      </div>
+      <div id="bg-table-admin" class="min-h-screen shadow-[0_0px_40px_-15px_rgba(0,0,0,0.2)] w-full mt-8 rounded-3xl p-8 bg-white">
+        <div class="flex items-center justify-between">
+            <div class="">
+              <p class="text-sm font-bold">Nama: <span id="nama-karyawan" class="text-main"></span></p>
+              <p class="text-sm font-bold">Devisi: <span id="devisi-karyawan" class="text-main"></span></p>
+            </div>
+            <!-- <button class="text-white bg-main rounded-lg px-3 py-2 text-sm">Export Laporan</button> -->
+        </div>
+        <p class="text-lg font-bold mt-4">Filter: <span id="filter-absensi" class="text-main">Januari</span></p>
+        <div class="mt-6">
+            <table id="table-absensi" class="display hidden" style="width: 100%;">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Tanggal</th>
+                    <th>Jam Masuk</th>
+                    <th>Lokasi</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+            </table>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+<%- include('./layouts/footer'); -%>
+<script src="/js/MEGA/MegaAbsensiDetail.js"></script>

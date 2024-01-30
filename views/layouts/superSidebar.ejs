@@ -1,29 +1,16 @@
-<div class="">
+<div>
   <div class="side-profile flex gap-3 my-4 items-center">
-    <div class="w-[60px] h-[60px] bg-white rounded-full overflow-hidden">
-      <img id="" src="/img/user-img.png" alt="profile-picture" class="w-full h-full object-cover">
+    <div class="w-[60px] h-[60px] bg-white rounded-full overflow-hidden border-2 border-[#287E5D]">
+      <img id="sidebar-profile-picture" src="/img/user-img.png" alt="profile-picture" class="w-full h-full object-cover">
     </div>
     <div class="">
-      <p class="font-bold text-sm text-white"><%= user.username %></p>
-      <% if(user.role =="super_admin"){%>
-        <p class="font-normal text-sm text-white">Super Admin</p>
-        <% }else{%>
-        <p class="font-normal text-sm text-white">Admin</p>
-      <% }%>
+      <p id="user-name" class="font-bold text-sm text-white"></p>
+      <p id="user-devisi" class="font-normal text-sm text-white"></p>
     </div>
   </div>
-  <div class="side-list flex flex-col mt-10 text-sm">
-    <% if(user.role =="super_admin"){%>
-    <a id="side-admin" href="/admin" class="py-3 px-5 text-white">Daftar Admin</a>
-    <a id="side-siswa" href="/siswa" class="py-3 px-5 text-white">Daftar Siswa</a>
-    <a id="side-topik" href="/topik" class="py-3 px-5 text-white">Topik Ujian</a>
-    <a id="side-ujian" href="/ujian" class="py-3 px-5 text-white">Ujian</a>
-    <a id="side-nilai" href="/nilai" class="py-3 px-5 text-white">Nilai</a>
-    <% }else{%>
-    <a id="side-beranda" href="/" class="py-3 px-5 text-white">Beranda</a>
-    <a id="side-siswa" href="/siswa" class="py-3 px-5 text-white">Data Siswa</a>
-    <a id="side-ujian" href="/ujian" class="py-3 px-5 text-white">Ujian</a>
-    <a id="side-nilai" href="/nilai" class="py-3 px-5 text-white">Nilai</a>
-    <% }%>
+  <div class="side-list flex flex-col mt-10 text-sm relative">
+    <a id="side-dashboard" href="/dashboard" class="py-3 px-5 text-white">Dashboard</a>
+    <a id="side-profile" href="/profile" class="py-3 px-5 text-white">Profile</a>
+    <a id="side-absensi" href="/absensi" class="py-3 px-5 text-white">Absensi</a>
   </div>
 </div>

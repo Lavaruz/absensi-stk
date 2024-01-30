@@ -18,11 +18,28 @@ const generateAccessToken = (user) => {
   const accessToken = sign(
     {
       id: user.unique_id,
-      username: user.username,
+    },
+    ACCESS_TOKEN_SECRET
+  );
+  return accessToken
+};
+
+const generateInGameAccessToken = (user) => {
+  const accessToken = sign(
+    {
+      unique_id: user.unique_id,
       school_id: user.school_id,
       school_name: user.school_name,
-      email: user.email,
-      role: user.role,
+    },
+    ACCESS_TOKEN_SECRET
+  );
+  return accessToken
+};
+
+const generateMegaAccessToken = (user) => {
+  const accessToken = sign(
+    {
+      credentials: user.credentials,
     },
     ACCESS_TOKEN_SECRET
   );
@@ -58,8 +75,25 @@ const validateTokenWebiste = (req:Request, res:Response, next:NextFunction) => {
   }
 };
 
+const validateTokenMegaWebiste = (req:Request, res:Response, next:NextFunction) => {
+  const megaToken = req.cookies["mega-token"];
+  // if token expired or not login
+  if (!megaToken) return res.redirect("/mega/login")
+  try {
+    verify(megaToken, ACCESS_TOKEN_SECRET, function(err, user){
+      if(err) return res.sendStatus(403)
+      next()
+    });
+  } catch (error) {
+    return response(500, "server error", { error: error.message }, res);
+  }
+};
+
 export {
   generateAccessToken,
   validateTokenAPI,
-  validateTokenWebiste
+  validateTokenWebiste,
+  generateInGameAccessToken,
+  generateMegaAccessToken,
+  validateTokenMegaWebiste
 };
